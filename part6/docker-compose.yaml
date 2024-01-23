@@ -1,0 +1,27 @@
+version: "3"
+
+# networks:
+#   network1:
+#     name: network1
+services:
+  proxy_server:
+    container_name: proxy_nginx
+    image: proxy_nginx
+    ports:
+      - "80:8080"
+    build:
+      context: ./nginx 
+      dockerfile: ./Dockerfile
+    # networks:
+    #   - network1
+
+  server:
+    image: fastcgi_server
+    container_name: fastcgi_server
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    # networks:
+    #   - network1
+
+

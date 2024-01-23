@@ -1,0 +1,2 @@
+gcc server.c -l fcgi -o my_server
+spawn-fcgi -p 8080 ./a.out
